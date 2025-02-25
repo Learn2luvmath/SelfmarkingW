@@ -36,6 +36,7 @@
 <body>
 
 <h2>Fill-in-the-Blanks Worksheet</h2>
+<div id="totalScore">Total Score: 0</div>
 
 <h3>1. Purpose/Problem:</h3>
 <div class="word-bank">Word Bank: Species, Weight, Healthier, Categorical, Gender, Egg, Height, Location</div>
@@ -95,54 +96,60 @@
 
 <button onclick="checkAnswers()">Submit</button>
 <div id="result"></div>
+<div id="totalScoreBottom">Total Score: 0</div>
 
 <script>
-    function checkAnswers() {
-        const answers = {
-            q1_1: "Species",
-            q1_2: "Weight",
-            q1_3: "Gender",
-            q1_4: "Height",
-            q1_5: "Location",
-            q1_6: "Healthier",
-            q1_7: "Egg",
-            q2_1: "Practical",
-            q2_2: "Variation",
-            q2_3: "Day",
-            q3_1: "3.668",
-            q3_2: "2.911",
-            q3_3: "2.391",
-            q3_4: "2.176",
-            q3_5: "1.67",
-            q3_6: "3.193",
-            q3_7: "2.889",
-            q3_8: "2.18",
-            q3_9: "2.028",
-            q3_10: "2.531",
-            q4_1: "2.911",
-            q4_2: "2.18",
-            q4_3: "0.662",
-            q4_4: "0.363",
-            q4_5: "Heavier",
-            q5_1: "Heavier",
-            q5_2: "200",
-            q5_3: "Species"
-        };
+    const answers = {
+        q1_1: ["species"],
+        q1_2: ["weight"],
+        q1_3: ["gender"],
+        q1_4: ["height"],
+        q1_5: ["location"],
+        q1_6: ["healthier"],
+        q1_7: ["egg"],
+        q2_1: ["practical"],
+        q2_2: ["variation"],
+        q2_3: ["day"],
+        q3_1: ["3.668"],
+        q3_2: ["2.911"],
+        q3_3: ["2.391"],
+        q3_4: ["2.176"],
+        q3_5: ["1.67"],
+        q3_6: ["3.193"],
+        q3_7: ["2.889"],
+        q3_8: ["2.18"],
+        q3_9: ["2.028"],
+        q3_10: ["2.531"],
+        q4_1: ["2.911"],
+        q4_2: ["2.18"],
+        q4_3: ["0.662"],
+        q4_4: ["0.363"],
+        q4_5: ["heavier"],
+        q5_1: ["heavier"],
+        q5_2: ["200"],
+        q5_3: ["species"]
+    };
 
+    function checkAnswers() {
         let score = 0;
         const totalQuestions = Object.keys(answers).length;
 
         for (const [key, value] of Object.entries(answers)) {
             const userAnswer = document.getElementById(key);
-            const userInput = userAnswer.value.trim();
-            if (userInput.toLowerCase() === value.toLowerCase()) {
+            const userInput = userAnswer.value.trim().toLowerCase();
+            const isCorrect = value.includes(userInput);
+
+            if (isCorrect) {
                 score++;
+                userAnswer.classList.remove("wrong");
             } else {
                 userAnswer.classList.add("wrong");
             }
         }
 
         document.getElementById("result").innerText = `You scored ${score} out of ${totalQuestions}.`;
+        document.getElementById("totalScore").innerText = `Total Score: ${score}`;
+        document.getElementById("totalScoreBottom").innerText = `Total Score: ${score}`;
     }
 </script>
 
