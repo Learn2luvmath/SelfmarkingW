@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill-in-the-Blanks Worksheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #333;
+        }
+        .word-bank {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .blank {
+            border-bottom: 1px solid #000;
+            display: inline-block;
+            width: 100px;
+            margin: 0 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .wrong {
+            border-bottom: 2px solid red;
+            background-color: #ffcccc;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Fill-in-the-Blanks Worksheet</h2>
+
+<h3>1. Purpose/Problem:</h3>
+<div class="word-bank">Word Bank: Species, Weight, Healthier, Categorical, Gender, Egg, Height, Location</div>
+<p>
+    The dataset includes <strong>categorical</strong> data on <input type="text" class="blank" id="q1_1">, <input type="text" class="blank" id="q1_2">, and <input type="text" class="blank" id="q1_3">, and numerical data on <input type="text" class="blank" id="q1_4"> and <input type="text" class="blank" id="q1_5"> for kiwi from around <strong>New Zealand</strong>. <br>
+    I believe that female kiwi are likely to be <input type="text" class="blank" id="q1_6"> than male kiwi because female kiwi need to be <strong>healthy</strong> enough to produce a <input type="text" class="blank" id="q1_7">.
+</p>
+
+<h3>2. Sources of Variation:</h3>
+<div class="word-bank">Word Bank: Random, Variation, Day, Practical, Sample</div>
+<p>
+    The sample taken is a <input type="text" class="blank" id="q2_1"> one, improving the chances of it being representative of the <strong>population</strong>. <br>
+    Taking a larger sample should reduce this <input type="text" class="blank" id="q2_2"> as there is less variation between larger samples. <br>
+    The weight of a kiwi is likely to vary during the <input type="text" class="blank" id="q2_3">. Weighing the kiwi at the same time of day would help manage this <strong>variation</strong>.
+</p>
+
+<h3>3. Data:</h3>
+<div class="word-bank">Word Bank: 2.889, 3.668, 2.391, 3.193, 2.18, 2.911, 2.028, 2.531, 1.67, 2.176</div>
+<p>
+    <strong>5-Point Summary:</strong><br>
+    <strong>Male (kg):</strong><br>
+    Max: <input type="text" class="blank" id="q3_1"> <br>
+    Upper Quartile: <input type="text" class="blank" id="q3_2"> <br>
+    Median: <input type="text" class="blank" id="q3_3"> <br>
+    Lower Quartile: <input type="text" class="blank" id="q3_4"> <br>
+    Minimum: <input type="text" class="blank" id="q3_5"> <br>
+    
+    <strong>Female (kg):</strong><br>
+    Max: <input type="text" class="blank" id="q3_6"> <br>
+    Upper Quartile: <input type="text" class="blank" id="q3_7"> <br>
+    Median: <input type="text" class="blank" id="q3_8"> <br>
+    Lower Quartile: <input type="text" class="blank" id="q3_9"> <br>
+    Minimum: <input type="text" class="blank" id="q3_10"> <br>
+</p>
+
+<h3>4. Analysis:</h3>
+<div class="word-bank">Word Bank: 2.911, 2.18, 0.662, 0.363, Heavier</div>
+<p>
+    In my sample, the median weight of females (<input type="text" class="blank" id="q4_1"> kg) is <strong>heavier</strong> than the median weight of males (<input type="text" class="blank" id="q4_2"> kg). <br>
+    The middle 50% of female kiwi weights are all <strong>heavier</strong> than the middle 50% of male kiwi weights, shown by the <strong>Lower Quartile</strong> for females (<input type="text" class="blank" id="q4_3"> kg) being above the <strong>Upper Quartile</strong> for males (<input type="text" class="blank" id="q4_4"> kg). <br>
+    The <strong>Inter-Quartile Range</strong> of <input type="text" class="blank" id="q4_5"> kg for females vs <input type="text" class="blank" id="q4_6"> kg for males indicates more variation in the measured weights of female birds.
+</p>
+
+<h3>5. Conclusion:</h3>
+<div class="word-bank">Word Bank: Heavier, 200, Species</div>
+<p>
+    I can conclude that female kiwi tend to be <input type="text" class="blank" id="q5_1"> than male kiwi in the population of kiwi in <strong>New Zealand</strong>. <br>
+    One potential limitation is that my sample of <input type="text" class="blank" id="q5_2"> kiwi might not be representative of the population. <br>
+    Differences in weight might be due to variations in how different <input type="text" class="blank" id="q5_3"> of kiwi have evolved.
+</p>
+
+<h3>Instructions</h3>
+<p>
+    Use the word bank provided at the start of each section to fill in the blanks.<br>
+    Review your answers to ensure they accurately reflect the information provided.
+</p>
+
+<button onclick="checkAnswers()">Submit</button>
+<div id="result"></div>
+
+<script>
+    function checkAnswers() {
+        const answers = {
+            q1_1: "Species",
+            q1_2: "Weight",
+            q1_3: "Gender",
+            q1_4: "Height",
+            q1_5: "Location",
+            q1_6: "Healthier",
+            q1_7: "Egg",
+            q2_1: "Practical",
+            q2_2: "Variation",
+            q2_3: "Day",
+            q3_1: "3.668",
+            q3_2: "2.911",
+            q3_3: "2.391",
+            q3_4: "2.176",
+            q3_5: "1.67",
+            q3_6: "3.193",
+            q3_7: "2.889",
+            q3_8: "2.18",
+            q3_9: "2.028",
+            q3_10: "2.531",
+            q4_1: "2.911",
+            q4_2: "2.18",
+            q4_3: "0.662",
+            q4_4: "0.363",
+            q4_5: "Heavier",
+            q5_1: "Heavier",
+            q5_2: "200",
+            q5_3: "Species"
+        };
+
+        let score = 0;
+        const totalQuestions = Object.keys(answers).length;
+
+        for (const [key, value] of Object.entries(answers)) {
+            const userAnswer = document.getElementById(key);
+            const userInput = userAnswer.value.trim();
+            if (userInput.toLowerCase() === value.toLowerCase()) {
+                score++;
+            } else {
+                userAnswer.classList.add("wrong");
+            }
+        }
+
+        document.getElementById("result").innerText = `You scored ${score} out of ${totalQuestions}.`;
+    }
+</script>
+
+</body>
+</html>
